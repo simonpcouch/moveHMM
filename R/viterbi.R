@@ -68,6 +68,10 @@ viterbi <- function(m)
             tm <- trMat[,,aInd[zoo]:nrow(probs)]
         }
 
+        if (is.vector(p)) {
+            p <- matrix(p, ncol = 2)
+        }
+
         xi <- matrix(NA,nbObs,nbStates)
         foo <- delta*p[1,]
         xi[1,] <- foo/sum(foo)
